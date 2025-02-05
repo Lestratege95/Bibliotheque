@@ -1,0 +1,44 @@
+# templates/liste_editeurs.html
+<!DOCTYPE html>
+<html>
+<head><title>Liste des éditeurs</title></head>
+<body>
+    <h1>Liste des éditeurs</h1>
+    <ul>
+        {% for editeur in editeurs %}
+            <li><a href="/editeur/{{ editeur[0] }}">{{ editeur[1] }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/ajouter_editeur">Ajouter un éditeur</a>
+</body>
+</html>
+
+# templates/info_editeur.html
+<!DOCTYPE html>
+<html>
+<head><title>Informations de l'éditeur</title></head>
+<body>
+    <h1>Éditeur: {{ editeur[1] }}</h1>
+    <p>Site Web: <a href="{{ editeur[2] }}">{{ editeur[2] }}</a></p>
+    <p>Groupe: {{ editeur[3] }}</p>
+    <p>Adresse: {{ editeur[4] }}</p>
+    <a href="/editeurs">Retour à la liste</a>
+</body>
+</html>
+
+# templates/ajouter_editeur.html
+<!DOCTYPE html>
+<html>
+<head><title>Ajouter un éditeur</title></head>
+<body>
+    <h1>Ajouter un éditeur</h1>
+    <form method="post">
+        Nom: <input type="text" name="nom" required><br>
+        Site Web: <input type="url" name="site_web"><br>
+        Groupe: <input type="text" name="groupe"><br>
+        Adresse Postale: <input type="text" name="adresse_postale"><br>
+        <button type="submit">Ajouter</button>
+    </form>
+    <a href="/editeurs">Retour à la liste</a>
+</body>
+</html>
